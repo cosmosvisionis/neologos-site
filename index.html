@@ -3,34 +3,153 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Neologos</title>
-<meta name="description" content="An AI agent for your phone that browses, books, drafts mail and runs tasks on a schedule, and asks before it pays, books or sends.">
+<title>Neologos: the AI that finishes the job</title>
+<meta name="description" content="An AI agent for iPhone that books on real websites, drafts your mail and runs tasks on a schedule, and asks before it pays, books or sends anything. No account, no tracking; bring your own model.">
+<meta property="og:title" content="Neologos: the AI that finishes the job">
+<meta property="og:description" content="Books, drafts and keeps checking for you, and asks before anything that costs money or leaves your phone.">
+<meta property="og:image" content="shots/01-browser.jpg">
+<meta name="theme-color" content="#111215" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)">
 <link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="landing.css">
 </head>
-<body>
-<main>
-<header>
-  <img src="icon.png" alt="">
-  <a href="index.html">Neologos</a>
-  <nav><a href="privacy.html">Privacy</a><a href="support.html">Support</a></nav>
+<body class="landing">
+
+<header class="bar">
+  <a class="brand" href="index.html"><img src="icon.png" alt=""><span>Neologos</span></a>
+  <nav aria-label="Site">
+    <a href="#features">Features</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="support.html">Support</a>
+  </nav>
 </header>
 
-<h1>An AI agent that finishes the job.</h1>
-<p class="lead">Neologos browses, books, drafts your mail and runs tasks on a schedule, and asks before it pays, books or sends anything. No account, no tracking; bring your own model key.</p>
+<section class="hero">
+  <svg class="hills" viewBox="0 0 1440 420" preserveAspectRatio="none" aria-hidden="true">
+    <path class="h1" d="M0 180 C240 120 480 220 720 170 S1200 110 1440 170 V420 H0Z"/>
+    <path class="h2" d="M0 250 C260 200 520 290 760 245 S1220 190 1440 240 V420 H0Z"/>
+    <path class="h3" d="M0 320 C280 280 560 360 800 320 S1240 270 1440 315 V420 H0Z"/>
+    <path class="h4" d="M0 380 C300 350 600 410 860 380 S1260 345 1440 375 V420 H0Z"/>
+  </svg>
+  <div class="hero-text">
+    <p class="kicker">For iPhone · iOS 26</p>
+    <h1>The AI that finishes the job.</h1>
+    <p class="lead">Ask in plain words. Neologos opens the website, fills in the form, drafts the email or sets up a check that runs every week, and stops to ask you before anything that costs money or leaves your phone.</p>
+    <div class="actions">
+      <span class="button primary" aria-disabled="true">Coming to the App Store</span>
+      <a class="button" href="#features">See what it does</a>
+    </div>
+    <p class="fine">No account. No tracking. Bring your own AI key, or use Apple's on-device model.</p>
+  </div>
+</section>
 
-<div class="card">
-  <ul>
-    <li><strong>Books on real websites</strong> and stops at the final button for your OK.</li>
-    <li><strong>Handles your inbox</strong>: finds what needs a reply and drafts it.</li>
-    <li><strong>Keeps checking</strong>: ask once, it runs on a schedule and tells you when it matters.</li>
-    <li><strong>Any model</strong>: OpenRouter, OpenAI, Anthropic, Google Gemini and more, with your own keys.</li>
+<section class="gallery" aria-label="Screenshots">
+  <div class="strip">
+    <img src="shots/01-browser.jpg" alt="It books. You say yes: the browser stops at Pay and asks with Face ID." loading="lazy" width="415" height="900">
+    <img src="shots/02-mail.jpg" alt="Your inbox, handled: what needs a reply, with drafts ready to send." loading="lazy" width="415" height="900">
+    <img src="shots/03-schedule.jpg" alt="Ask once, it keeps checking: a task that runs every Sunday." loading="lazy" width="415" height="900">
+    <img src="shots/04-home.jpg" alt="Your day on one screen: widgets for meetings, weather, mail and tasks." loading="lazy" width="415" height="900">
+    <img src="shots/05-models.jpg" alt="Hundreds of models: pick one for each chat." loading="lazy" width="415" height="900">
+    <img src="shots/06-privacy.jpg" alt="No account, no tracking: keys stay in your Keychain." loading="lazy" width="415" height="900">
+  </div>
+</section>
+
+<main class="wide">
+
+<section id="features">
+  <h2 class="section">It does the work.</h2>
+  <div class="grid">
+    <article class="tile">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>
+      <h3>Books on real websites</h3>
+      <p>Its own browser fills in your details, compares sites and stops at the final button. You confirm with Face ID; bank and government sites always ask you to sign in yourself.</p>
+    </article>
+    <article class="tile">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+      <h3>Your inbox, handled</h3>
+      <p>Connect Gmail and ask what needs a reply. It finds the messages, sums them up and drafts answers. Nothing is sent until you read it and tap Send.</p>
+    </article>
+    <article class="tile">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      <h3>Ask once, it keeps checking</h3>
+      <p>"Every Friday, check ferry prices and tell me if they drop" becomes a task that runs on its own. You only hear from it when it matters.</p>
+    </article>
+    <article class="tile">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></svg>
+      <h3>Your day on one screen</h3>
+      <p>Calendar, reminders, maps, weather, Health, Music and Home, each only when you allow it. Pick the widgets you want on Home; use Siri and Shortcuts too.</p>
+    </article>
+    <article class="tile">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>
+      <h3>Real files and images</h3>
+      <p>Word, Excel, PowerPoint and PDF files you can share, and images made or edited on request, ready to drop into a slide or a flyer.</p>
+    </article>
+    <article class="tile">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg>
+      <h3>Any model, your keys</h3>
+      <p>Hundreds of models through OpenRouter, or OpenAI, Anthropic, Google Gemini, Groq, DeepSeek, Mistral and xAI directly. Pick one per chat; you pay them, usually under a cent a message.</p>
+    </article>
+  </div>
+</section>
+
+<section class="asks">
+  <h2 class="section">It asks before it acts.</h2>
+  <ol class="steps">
+    <li><span>1</span><div><h3>You ask</h3><p>"Book the 10:00 car ferry for two on Friday."</p></div></li>
+    <li><span>2</span><div><h3>It does the clicking</h3><p>Finds the sailing, fills in the form, and you can watch every step or take over.</p></div></li>
+    <li><span>3</span><div><h3>You say yes</h3><p>It stops at "Pay $86" and asks. Nothing is paid, booked, sent or deleted without your OK.</p></div></li>
+  </ol>
+</section>
+
+<section class="privacy-band">
+  <div>
+    <h2 class="section">No account. No server. No tracking.</h2>
+    <p>There is no Neologos server and no analytics. Your chats, memory and notes stay on your iPhone, encrypted by iOS. Keys live in the Keychain. When you ask something, your phone talks straight to the AI provider you chose, and nothing at all leaves it if you pick Apple's on-device model.</p>
+    <p><a href="privacy.html">Read the privacy policy</a></p>
+  </div>
+  <ul class="checks">
+    <li>No sign-up</li>
+    <li>No ads, no tracking</li>
+    <li>Data stays on your phone</li>
+    <li>Export or delete everything</li>
   </ul>
-</div>
+</section>
 
-<p><a href="support.html">Support</a> · <a href="privacy.html">Privacy Policy</a></p>
+<section class="faq">
+  <h2 class="section">Questions</h2>
+  <details>
+    <summary>Do I need an AI key?</summary>
+    <p>For the full agent, yes: an OpenRouter key is the easiest start (one key, hundreds of models), or a key from OpenAI, Anthropic, Google, Groq, DeepSeek, Mistral or xAI. On iPhones with Apple Intelligence you can also chat with Apple's on-device model, with no key and nothing leaving your phone.</p>
+  </details>
+  <details>
+    <summary>What does it cost?</summary>
+    <p>You pay your AI provider directly for what you use, usually under a cent a message with a fast model. Images cost a few cents each; the app shows the price on every image.</p>
+  </details>
+  <details>
+    <summary>Can it spend my money or send mail on its own?</summary>
+    <p>No. It stops at the final step of any payment or booking and asks you, with Face ID when your phone has it. Mail goes out only when you tap Send on the draft.</p>
+  </details>
+  <details>
+    <summary>Which iPhones does it run on?</summary>
+    <p>iPhones with iOS 26. Apple's on-device model needs an iPhone with Apple Intelligence; every other feature works with your own key on any of them.</p>
+  </details>
+  <details>
+    <summary>Where is my data?</summary>
+    <p>On your iPhone. There's no Neologos account or server, so we never receive your chats, keys or mail. Settings › Storage exports or deletes everything.</p>
+  </details>
+</section>
 
-<footer>© 2026 Egehan Bakici</footer>
 </main>
+
+<footer class="site-foot">
+  <div class="wide">
+    <a class="brand" href="index.html"><img src="icon.png" alt=""><span>Neologos</span></a>
+    <nav aria-label="Footer"><a href="privacy.html">Privacy Policy</a><a href="support.html">Support</a></nav>
+    <p>© 2026 Egehan Bakici</p>
+  </div>
+</footer>
+
 </body>
 </html>

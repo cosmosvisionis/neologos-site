@@ -1,0 +1,88 @@
+/* The home page only. Same tokens as style.css: graphite in dark, paper-light in light. */
+:root {
+  --hill1: #e7e9ee; --hill2: #dcdfe5; --hill3: #d0d3da; --hill4: #c4c8d0;
+  --tile: #eceef2;
+  --shadow: 0 24px 60px rgba(11, 13, 18, 0.12);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --hill1: #1e2026; --hill2: #262930; --hill3: #30333b; --hill4: #3a3e47;
+    --tile: #26282e;
+    --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  }
+}
+
+.landing { overflow-x: hidden; }
+.wide { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+/* Top bar */
+.bar { display: flex; align-items: center; gap: 12px; max-width: 1120px; margin: 0 auto; padding: 20px 16px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font-weight: 700; font-size: 19px; }
+.brand img { width: 36px; height: 36px; border-radius: 9px; }
+.bar nav { margin-left: auto; display: flex; gap: 6px; }
+.bar nav a { color: var(--muted); text-decoration: none; font-size: 15px; padding: 10px 12px; border-radius: 22px; min-height: 44px; display: inline-flex; align-items: center; }
+.bar nav a:hover { color: var(--text); background: var(--tile); }
+
+/* Hero over the hills */
+.hero { position: relative; padding: 56px 16px 150px; text-align: center; isolation: isolate; }
+.hills { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 300px; z-index: -1; }
+.hills .h1 { fill: var(--hill1); } .hills .h2 { fill: var(--hill2); } .hills .h3 { fill: var(--hill3); } .hills .h4 { fill: var(--hill4); }
+.hero-text { max-width: 760px; margin: 0 auto; }
+.kicker { font-size: 14px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
+.hero h1, .section { text-wrap: balance; }
+.hero h1 { font-size: clamp(40px, 7vw, 76px); line-height: 1.02; letter-spacing: -0.035em; margin: 0 0 20px; color: var(--text); }
+.hero .lead { font-size: clamp(17px, 2.2vw, 21px); line-height: 1.5; margin: 0 auto 28px; max-width: 640px; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.button { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 22px; border-radius: 25px; font-weight: 600; font-size: 16px; text-decoration: none; color: var(--text); background: var(--tile); border: 1px solid var(--line); }
+.button.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
+a.button:hover { filter: brightness(1.08); }
+.fine { font-size: 14px; margin: 18px 0 0; }
+
+/* Screenshots, scrolling sideways */
+.gallery { margin: -70px 0 0; position: relative; }
+.strip { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px max(16px, calc((100vw - 1120px) / 2 + 16px)) 28px; scrollbar-width: none; }
+.strip::-webkit-scrollbar { display: none; }
+.strip img { flex: none; width: min(260px, 66vw); height: auto; border-radius: 28px; scroll-snap-align: center; box-shadow: var(--shadow); background: var(--surface); }
+
+/* Sections */
+.section { font-size: clamp(30px, 4.4vw, 46px); line-height: 1.08; letter-spacing: -0.03em; margin: 88px 0 28px; color: var(--text); }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 24px; }
+.tile svg { width: 44px; height: 44px; padding: 10px; border-radius: 12px; background: var(--tile); fill: none; stroke: var(--text); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.tile h3 { font-size: 19px; margin: 16px 0 6px; color: var(--text); }
+.tile p { margin: 0; font-size: 16px; }
+
+.steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.steps li { display: flex; gap: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 22px; margin: 0; }
+.steps span { flex: none; width: 36px; height: 36px; border-radius: 18px; background: var(--text); color: var(--bg); font-weight: 700; display: grid; place-items: center; }
+.steps h3 { margin: 4px 0 4px; font-size: 18px; color: var(--text); }
+.steps p { margin: 0; font-size: 16px; }
+
+.privacy-band { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 28px; padding: 8px 32px 28px; margin-top: 88px; }
+.privacy-band .section { margin-top: 32px; }
+.checks { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 10px; }
+.checks li { display: flex; align-items: center; gap: 12px; margin: 0; padding: 14px 16px; border-radius: 16px; background: var(--tile); color: var(--text); font-weight: 600; }
+.checks li::before { content: "✓"; width: 24px; height: 24px; flex: none; border-radius: 12px; background: var(--text); color: var(--bg); display: grid; place-items: center; font-size: 13px; font-weight: 700; }
+
+.faq details { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 0 20px; margin: 10px 0; }
+.faq summary { cursor: pointer; list-style: none; min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-weight: 600; color: var(--text); font-size: 17px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-size: 22px; font-weight: 400; color: var(--muted); }
+.faq details[open] summary::after { content: "–"; }
+.faq details p { margin: 0 0 18px; }
+
+.site-foot { margin-top: 96px; border-top: 1px solid var(--line); padding: 28px 0 48px; }
+.site-foot .wide { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
+.site-foot nav { display: flex; gap: 16px; }
+.site-foot nav a { color: var(--muted); text-decoration: none; font-size: 15px; }
+.site-foot p { margin: 0 0 0 auto; font-size: 14px; }
+
+@media (max-width: 860px) {
+  .grid, .steps { grid-template-columns: 1fr; }
+  .privacy-band { grid-template-columns: 1fr; padding: 4px 20px 22px; }
+}
+@media (max-width: 520px) {
+  .bar nav a[href="#features"] { display: none; }
+  .hero { padding-top: 32px; padding-bottom: 120px; }
+  .site-foot p { margin-left: 0; width: 100%; }
+}

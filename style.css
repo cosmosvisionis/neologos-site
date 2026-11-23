@@ -59,3 +59,4 @@ footer { margin-top: 56px; font-size: 14px; color: var(--muted); }
   h1 { font-size: 32px; }
   nav { gap: 12px; }
 }
+@media (max-width: 520px) { header { flex-wrap: wrap; } header nav { margin-left: 0; width: 100%; } }

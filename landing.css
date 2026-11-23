@@ -86,3 +86,11 @@ a.button:hover { filter: brightness(1.08); }
   .hero { padding-top: 32px; padding-bottom: 120px; }
   .site-foot p { margin-left: 0; width: 100%; }
 }
+
+/* App Store badge: Apple's artwork, unchanged; only its size is set. */
+.store-badge { display: inline-flex; border-radius: 10px; }
+.store-badge img { display: block; height: 54px; width: auto; }
+.bar nav a.get { color: var(--text); font-weight: 600; }
+.get-band { text-align: center; padding: 24px 0 8px; }
+.get-band p { margin: 0 auto 20px; max-width: 480px; }
+@media (max-width: 560px) { .bar nav a.get { display: none; } }

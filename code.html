@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJHCX0N8Y2"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-ZJHCX0N8Y2');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Neologos free for 100 people</title>
+<meta name="description" content="100 free App Store codes for Neologos, the AI agent for iPhone. One code per person, first come first served.">
+<link rel="canonical" href="https://neologos.app/code">
+<meta property="og:title" content="Neologos is free for the first 100 people">
+<meta property="og:description" content="Get a free App Store code for Neologos, the AI agent for iPhone.">
+<meta property="og:url" content="https://neologos.app/code">
+<meta property="og:image" content="https://neologos.app/shots/1-browser.jpg">
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="stylesheet" href="style.css">
+<style>
+  .count { font-size: 15px; color: var(--muted); margin: 0 0 16px; }
+  .count strong { font-variant-numeric: tabular-nums; }
+  .primary { display: inline-block; min-height: 44px; padding: 12px 22px; border: 0; border-radius: 12px; background: var(--accent); color: var(--bg); font: inherit; font-weight: 600; text-decoration: none; cursor: pointer; }
+  .primary[disabled] { opacity: .5; cursor: default; }
+  .code { font: 600 28px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; color: var(--text); margin: 4px 0 16px; word-break: break-all; }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .ghost { min-height: 44px; padding: 12px 18px; border: 1px solid var(--line); border-radius: 12px; background: transparent; color: var(--text); font: inherit; cursor: pointer; }
+  .holder { font-size: 13px; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+<header>
+  <img src="icon.png" alt="">
+  <a href="index.html">Neologos</a>
+  <nav><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a></nav>
+</header>
+
+<h1>Free for the first 100 people.</h1>
+<p class="lead">Neologos is the AI agent for iPhone that books on real websites, makes files and runs tasks on a schedule. We're giving 100 App Store codes to people who want to try it and tell us what they think.</p>
+
+<div class="card" id="box" aria-live="polite">
+  <p class="count" id="count">Checking how many codes are left…</p>
+
+  <div id="ask">
+    <button class="primary" id="get" type="button">Get my free code</button>
+    <p class="holder">One code per person. Needs an iPhone with iOS 26.</p>
+  </div>
+
+  <div id="got" hidden>
+    <p><strong id="gotTitle">Your code</strong></p>
+    <p class="code" id="code"></p>
+    <div class="row">
+      <a class="primary" id="redeem" href="#">Redeem in the App Store</a>
+      <button class="ghost" id="copy" type="button">Copy code</button>
+    </div>
+    <p>Or open the App Store, tap your picture, then <strong>Redeem Gift Card or Code</strong>.</p>
+    <p class="holder" id="holder"></p>
+  </div>
+
+  <p id="note" hidden></p>
+</div>
+
+<h2>What we'd love to hear</h2>
+<p>What you asked it, what worked and what didn't. Write to <a href="mailto:info@neologos.app?subject=Neologos%20feedback">info@neologos.app</a>, or leave a review on the App Store.</p>
+
+<footer>When you ask for a code we keep a scrambled (hashed) form of your IP address and a random id from this browser, only to give one code per person, and delete them after the codes expire. See the <a href="privacy.html#website">privacy policy</a>.</footer>
+</main>
+
+<script>
+(() => {
+  const API = "https://api.neologos.app/promo";
+  const $ = (id) => document.getElementById(id);
+  const notes = {
+    region: "Codes only work in countries where Neologos is on the App Store, and yours isn't one of them yet.",
+    network_used: "A code was already given to someone on this network. Try again from another connection, such as mobile data.",
+    gone: "All 100 codes are taken. Thank you for the interest! Neologos is on the App Store for $5.",
+    error: "Something went wrong. Please try again in a minute.",
+  };
+
+  function store(key, value) {
+    try { if (value === undefined) return localStorage.getItem(key); localStorage.setItem(key, value); } catch (e) { return null; }
+  }
+  function device() {
+    let id = store("promo.device");
+    if (!id) { id = crypto.randomUUID(); store("promo.device", id); }
+    return id;
+  }
+  function note(kind) { $("note").textContent = notes[kind] || notes.error; $("note").hidden = false; }
+
+  function show(r) {
+    $("ask").hidden = true;
+    $("got").hidden = false;
+    $("gotTitle").textContent = r.again ? "You already have a code" : "Your code";
+    $("code").textContent = r.code;
+    $("redeem").href = "https://apps.apple.com/redeem?code=" + encodeURIComponent(r.code);
+    const t = r.terms;
+    $("holder").textContent = "Promo Codes expire on " + t.expires + " and are redeemable only on the App Store for " + t.country +
+      ". Requires an Apple ID, subject to prior acceptance of license and usage terms. To create an Apple ID, you must be age 13 (or equivalent minimum age in your Home Country, as set forth in the registration process) and in " + t.country +
+      ". Compatible software and hardware, and internet access (fees may apply) required. Not for resale. Full terms apply; see www.apple.com/legal/itunes/ww/. For more information, see https://support.apple.com/apps. This app is provided to you by " + t.by + " - Egehan Bakici";
+  }
+
+  fetch(API).then((r) => r.json()).then((s) => {
+    $("count").innerHTML = s.left > 0 ? "<strong>" + s.left + "</strong> of 100 codes left. Expires " + s.expires + "." : "All 100 codes are taken.";
+    if (s.left === 0 && !store("promo.code")) { $("ask").hidden = true; note("gone"); }
+  }).catch(() => { $("count").textContent = ""; });
+
+  const saved = store("promo.code");
+  if (saved) { try { show(Object.assign(JSON.parse(saved), { again: true })); } catch (e) {} }
+
+  $("get").addEventListener("click", async () => {
+    $("get").disabled = true;
+    $("note").hidden = true;
+    try {
+      const res = await fetch(API + "/claim", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ device: device() }) });
+      const r = await res.json();
+      if (r.code) { store("promo.code", JSON.stringify({ code: r.code, terms: r.terms })); show(r); }
+      else note(r.error);
+    } catch (e) { note("error"); }
+    $("get").disabled = false;
+  });
+
+  $("copy").addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText($("code").textContent); $("copy").textContent = "Copied"; } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>
